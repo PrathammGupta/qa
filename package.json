@@ -1,0 +1,41 @@
+{
+  "name": "nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:client": "nextjs src/client",
+    "dev:server": "node src/server --out-dir dist/server --",
+    "build": "next build",
+    "build:client": "dotenv -e .env.production next build src/client",
+    "build:server": "node src/server --out-dir dist/server --source-maps",
+    "build:staging": "yarn build:staging:client && yarn build:server",
+    "build:staging:client": "dotenv -e .env.staging next build src/client",
+    "start": "next start",
+    "export": "npm run build && next export -o _static",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@netlify/plugin-nextjs": "^4.3.2",
+    "build": "^0.1.4",
+    "next": "^12.1.5",
+    "next-compose-plugins": "^2.2.1",
+    "next-optimized-images": "^2.6.2",
+    "next-pwa": "^5.5.0",
+    "node": "^17.7.2",
+    "razorpay": "^2.8.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "serve": "^13.0.2",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.3.2",
+    "autoprefixer": "^10.4.0",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.0",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.7",
+    "webpack-plugin": "^1.0.5"
+  }
+}
